@@ -19,17 +19,19 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container">
-        <h5>Lolzinho</h5>
-        <input type="text" onChange={ e => setSearchText(e.target.value) }></input>
-        <button onClick={ e => searchForPlayer(e) }>Search</button>
+      <h1>League Finder</h1>
+      <div class="container">
+        <input class="player-input" type="text" placeholder="Digite um Nickname" onChange={ e => setSearchText(e.target.value) }></input>
+        <button class="material-symbols-outlined"onClick={ e => searchForPlayer(e) }>search</button>
       </div>
 
-      {JSON.stringify(playerData) != '{}' ? 
-        <div>
-          <p>{playerData.name}</p>
-          <img width="100" height="100" src={"http://ddragon.leagueoflegends.com/cdn/12.15.1/img/profileicon/" + playerData.profileIconId + ".png"}></img>
-          <p>Level: {playerData.summonerLevel}</p>
+      {JSON.stringify(playerData) !== '{}' ? 
+        <div class="player-container">
+          <div class="flex">
+            <img class="icon" alt="Icone de Invocador" src={"http://ddragon.leagueoflegends.com/cdn/12.15.1/img/profileicon/" + playerData.profileIconId + ".png"}></img>
+            <p>{playerData.name}</p>
+            <p>Level: {playerData.summonerLevel}</p>
+          </div>
         </div>
         : 
         null
